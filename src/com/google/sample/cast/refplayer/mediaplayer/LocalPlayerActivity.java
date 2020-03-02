@@ -47,11 +47,13 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -352,8 +354,8 @@ public class LocalPlayerActivity extends AppCompatActivity {
 
     private void setCoverArtStatus(String url) {
         if (url != null) {
-            mImageLoader = CustomVolleyRequest.getInstance(this.getApplicationContext())
-                    .getImageLoader();
+            mImageLoader = CustomVolleyRequest.getInstance(this.getApplicationContext()).getImageLoader();
+
             mImageLoader.get(url, ImageLoader.getImageListener(mCoverArt, 0, 0));
             mCoverArt.setImageUrl(url, mImageLoader);
 
@@ -586,7 +588,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress,
-                    boolean fromUser) {
+                                          boolean fromUser) {
                 mStartText.setText(Utils.formatMillis(progress));
             }
         });
